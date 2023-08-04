@@ -16,7 +16,7 @@ export default function LinkButton(props: IndexProps) {
     <Button
       component={NextLinkComposed}
       to={to}
-      sx={{bgcolor:'greenyellow'}}
+      sx={{color:'white',mx:'10px'}}
     >
       {name}
     </Button>

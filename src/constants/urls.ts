@@ -1,31 +1,30 @@
-import { SvgIconComponent } from '@mui/icons-material';
+import { SvgIconComponent } from "@mui/icons-material";
 
 interface Item {
-    name: string;
-    url: string;
-    muiIcon: SvgIconComponent;
-  }
-
-
-
+  name: string;
+  url: string;
+  muiIcon: SvgIconComponent;
+}
 
 export const HeaderUrl = [
-    {
-        name:"About",
-        url:"/about",
-    },
-    {
-        name:"Projects",
-        url:"/projects",
-    },
-    {
-        name:"Blogs",
-        url:"/blogs",
-    },
-    {
-        name:"Contact",
-        url:"/contact",
-    },
-]
-
-
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "About",
+    url: "/about",
+  },
+  {
+    name: "Projects",
+    url: "/projects",
+  },
+  {
+    name: "Blogs",
+    url: "/blogs",
+  },
+  {
+    name: "Contact",
+    url: "/contact",
+  },
+];
