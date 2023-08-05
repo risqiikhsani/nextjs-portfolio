@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import Image from 'next/image'
 
 export default function Page() {
     return (
@@ -11,6 +12,13 @@ export default function Page() {
                 <Typography>
                     Risqi Ikhsani
                 </Typography>
+
+                <Image
+                    src="/desk.jpg"
+                    width={1920}
+                    height={1080}
+                    alt="desk"
+                />
 
                 <Typography>
                     const his_tech_passion = ["FullStack","FrontEnd","BackEnd","DevOps","Game Development"]

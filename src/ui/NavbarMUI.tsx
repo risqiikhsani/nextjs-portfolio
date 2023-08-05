@@ -117,11 +117,11 @@ export default function NavbarMUI(props: Props) {
           {leftDrawer}
         </Drawer>
       </Box>
-
-        <Container maxWidth="md" sx={{ p: 3 }}>
+          <Box sx={{minHeight:'100vh'}}>
           <Toolbar />
           {children}
-        </Container>
+          </Box>
+
 
       <Drawer
         anchor="right"
