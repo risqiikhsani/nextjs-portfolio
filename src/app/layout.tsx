@@ -1,6 +1,5 @@
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
-
 import { AuthHandler, useAuth } from '@/context/Auth';
 import NavbarMUI from "@/ui/NavbarMUI";
 
@@ -8,6 +7,8 @@ import { ReduxProviders } from "@/redux/provider";
 import ThemeRegistryMaterialUI from "@/components/ThemeRegistry/ThemeRegistry";
 import {NavigationEvents} from '@/components/navigation-events'
 import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
+import { AppContextHandler } from "@/context/AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({
@@ -48,11 +49,14 @@ export default async function RootLayout(props: Props) {
       <body className={roboto.className}>
         <ReduxProviders>
         <AuthHandler>
+        <AppContextHandler>
         <ThemeRegistryMaterialUI>
           <NavbarMUI>
           {props.children}
           </NavbarMUI>
+          <Toaster />
         </ThemeRegistryMaterialUI>
+        </AppContextHandler>
         </AuthHandler>
         </ReduxProviders>
         <Suspense fallback={null}>

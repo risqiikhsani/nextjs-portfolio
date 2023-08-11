@@ -1,16 +1,20 @@
 import Link from 'next/link'
 import { getAllPostsMeta } from '@/lib/mdx/mdx'
+import CardBase from '@/components/cards/card'
+import { Typography } from '@mui/material'
+import { Suspense } from 'react'
 
 const Page = async () => {
   const posts = await getAllPostsMeta()
 
   return (
-    <section className='py-24'>
-      <div className='container'>
-        <h1 className='text-3xl font-bold'>All Posts</h1>
-        <div className='flex gap-6 mt-6'>
-          {posts?.map(post => (
-            <Link
+    <>
+    <Typography variant="h2" sx={{textAlign:'center',color:'white'}}>
+      These are the blogs that I find it interesting !
+    </Typography>
+    {posts?.map((post,index) => (
+            <>
+            {/* <Link
               href={`blogs/${post.slug}`}
               key={post?.title}
               className='p-8 rounded-md shadow-md'
@@ -20,11 +24,14 @@ const Page = async () => {
               <time className='text-[12px] text-gray-400'>
                 {post.publishDate}
               </time>
-            </Link>
+            </Link> */}
+            
+            <CardBase key={index} imageUrl={post?.imageUrl} url={`blogs/${post.slug}`} name={post?.title} text={post.publishDate} />
+            
+            
+            </>
           ))}
-        </div>
-      </div>
-    </section>
+    </>
   )
 }
 

@@ -1,6 +1,6 @@
 
 import { getAllPostsMeta, getPostBySlug } from "@/lib/mdx/mdx"
-
+import { notFound } from 'next/navigation'
 
 // In the app directory, getStaticPaths is replaced with generateStaticParams
 export async function generateStaticParams() {
@@ -30,10 +30,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { content } = await getPageContent(params.slug)
 
+
+
   return (
-    <section className='py-24'>
-      <div className='container py-4 prose'>{content}</div>
-    </section>
+      
+    <article className="prose prose-slate max-w-none">{content}</article>
+    
   )
 }
 

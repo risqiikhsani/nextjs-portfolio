@@ -1,51 +1,196 @@
-import { Box, Typography } from "@mui/material";
+import { Avatar, Box, Button, Container, Divider, IconButton, Paper, Stack, Typography } from "@mui/material";
 import Image from 'next/image'
+import BorderedPaper from "@/components/cards/bordered-paper";
+import Home from "@/contents/mdx/home/Home.mdx";
+import "highlight.js/styles/github-dark.css"
+import CarouselMessages from "./_page/carousel-messages";
+import { textColorBackground } from "@/styles/Styles";
+import { NextLinkComposed } from "@/components/buttons/Link";
 
-export default function Page() {
+
+// this 2 needs client component
+// https://github.com/mui/material-ui/issues/38023
+// import GitHubIcon from '@mui/icons-material/GitHub';
+// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+
+
+
+
+
+const Page = async() => {
     return (
         <>
-            <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h1" sx={{ textTransform: 'none' }}>
+            <Box>
+                <Typography variant="h1" sx={{ textAlign: 'center', ...textColorBackground }}>
                     Welcome to my portfolio
                 </Typography>
 
-                <Typography>
-                    Risqi Ikhsani
-                </Typography>
+                <Box sx={{ position: 'relative', my: '30px' }}>
+                    <Image
+                        src="/desk.jpg"
+                        width={1920}
+                        height={1080}
+                        style={{width:'100%'}}
+                        alt="desk"
+                        priority={true}
+                    />
+                    <Box
+                        sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: 'transparent', p: 4, borderRadius: 8 }}
+                    >
+                        <Typography variant="h1" sx={{ textAlign: 'center', ...textColorBackground }}>
+                            Risqi Ikhsani
+                        </Typography>
 
-                <Image
-                    src="/desk.jpg"
-                    width={1920}
-                    height={1080}
-                    alt="desk"
-                />
+                        <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                            <div className='prose prose-slate max-w-none'>
+                                <Home />
+                            </div>
+                        </Box>
 
-                <Typography>
-                    const his_tech_passion = ["FullStack","FrontEnd","BackEnd","DevOps","Game Development"]
-                    const his_other_passion = ["Cat Lover kind of guy","Gorgeous Nature Blesser","`Keep Spreading Kindness` Quoter"]
-                </Typography>
 
-                <Typography>
-                    Hello, I'm a frontEnd and backEnd developer. and I have a passion for crafting immersive digital experiences that blend creativity with technology. My journey in the world of development began with a spark of curiosity, and it has evolved into a relentless pursuit of excellence in both front-end and back-end technologies.
-                </Typography>
 
-                <Typography>
-                    Imagine a world where ideas come to life, where imagination knows no bounds, and where creativity flows like an endless river. Welcome to my portfolio, a realm where pixels and lines dance together, giving birth to captivating experiences and unforgettable journeys.
+                        <Typography variant='h5' sx={{ color: 'white', textAlign: 'left', display: { xs: 'none', xl: 'block' } }}>
+                            Hello, my name is Risqi , my nickname is Hypernova.
+                            I'm a developer who has passion about Web development, Mobile development, desktop development, devOps, Game development .
+                            <br />
+                            Beside tech world ,I also love to see an amazing nature views. My most favorite country is Switzerland.
+                        </Typography>
 
-                    I am a passionate and adventurous creator, an explorer of the digital universe. With a paintbrush of code and a canvas of design, I bring dreams to reality, shaping the intangible into the extraordinary. From elegant websites that whisper enchanting stories to apps that empower and connect, I thrive on crafting unique digital wonders that leave a lasting impression.
+                        <Stack direction="row"
 
-                    Every project is an odyssey, a thrilling expedition into uncharted territories of technology and aesthetics. I embark on each journey with a curious heart, fueled by the desire to innovate and inspire. My toolkit is vast and versatile, encompassing the latest technologies, cutting-edge frameworks, and a dash of good old-fashioned ingenuity.
+                            spacing={2} sx={{ my: '10px', display: { xs: 'none', xl: 'block' } }}>
+                            <IconButton component={NextLinkComposed} to="https://github.com/risqiikhsani">
+                                <Avatar
+                                    alt="Github"
+                                    src="/icons/github2.png"
+                                    sx={{ width: 70, height: 70 }}
+                                />
+                            </IconButton>
 
-                    As a relentless seeker of excellence, I meticulously weave functionality and aesthetics together, ensuring every pixel has a purpose and every line sings in harmony. User experience is at the core of my creations, and I revel in the joy of watching users explore and engage with the products of my imagination.
+                            <IconButton component={NextLinkComposed} to="https://www.linkedin.com/in/risqiikhsani/">
+                                <Avatar
+                                    alt="Linkedin"
+                                    src="/icons/linkedin.png"
+                                    sx={{ width: 70, height: 70 }}
+                                />
+                            </IconButton>
 
-                    Beyond the realm of bits and bytes, I am a collaborator, a storyteller, and a problem solver. I thrive in the embrace of a creative team, bouncing ideas off each other like cosmic collisions that give birth to stars. Together, we conquer challenges, unlock hidden potential, and turn visions into concrete realities that stand the test of time.
 
-                    So, come, join me on this journey through a wonderland of imagination and innovation. Let's dive into the depths of creativity and emerge with something extraordinary, something that transcends the ordinary and embraces the extraordinary.
+                        </Stack>
 
-                    Thank you for stepping into my world, and I look forward to crafting magic together!
-                </Typography>
+
+
+                    </Box>
+
+                </Box>
+
+
+
+                <Container maxWidth='md' sx={{ my: '30px' }}>
+
+                    <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
+                        <div className='container py-4 prose'>
+                            <Home />
+                        </div>
+                    </Box>
+
+
+
+                    <Typography variant='h5' sx={{ color: 'white', textAlign: 'left', display: { xs: 'block', xl: 'none' } }}>
+                        Hello, my name is Risqi , my nickname is Hypernova.
+                        I'm a developer who has passion about Web development, Mobile development, desktop development, devOps, Game development .
+                        <br />
+                        Beside tech world ,I also love to see an amazing nature views. My most favorite country is Switzerland.
+                    </Typography>
+
+                    <Stack direction="row"
+
+                        spacing={2} sx={{
+                            my: '10px',
+                            display: { xs: 'block', xl: 'none' },
+                        }}>
+                        <IconButton component={NextLinkComposed} to="https://github.com/risqiikhsani">
+                            <Avatar
+                                alt="Github"
+                                src="/icons/github2.png"
+                                sx={{ width: 70, height: 70 }}
+                            />
+                        </IconButton>
+
+                        <IconButton component={NextLinkComposed} to="https://www.linkedin.com/in/risqiikhsani/">
+                            <Avatar
+                                alt="Linkedin"
+                                src="/icons/linkedin.png"
+                                sx={{ width: 70, height: 70 }}
+                            />
+                        </IconButton>
+
+
+                    </Stack >
+                    <Divider sx={{ my: '20px', display: { xs: 'block', lg: 'none' } }} />
+
+                    <Typography variant="h3" sx={{ textAlign: 'center', ...textColorBackground }}>
+                        if I had several messages to spread the world , they would be:
+                    </Typography>
+
+                    <CarouselMessages />
+
+
+
+                </Container>
+
+                <Box sx={{ position: 'relative' }}>
+                    <Image
+                        src="/cat.jpg"
+                        width={1920}
+                        height={1080}
+                        style={{width:'100%'}}
+                        alt="desk"
+                        priority={true}
+                    />
+                    <Box
+                        sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: 'transparent', p: 4, borderRadius: 8 }}
+                    >
+                        
+                            <Typography  variant="h5" sx={{ textAlign: 'center', color:'white' }}>
+                                Cat as the best coding budy
+                            </Typography>
+                            <Typography  variant="h2" sx={{ textAlign: 'center', color:'white' }}>
+                                PAWsitively Purrfect Pixels
+                            </Typography>
+                           
+                       
+                    </Box>
+                </Box>
+                <Box sx={{ position: 'relative' }}>
+                    <Image
+                        src="/coding2.jpg"
+                        width={1500}
+                        height={998}
+                        style={{width:'100%'}}
+                        alt="desk"
+                        // priority={true}
+                    />
+                    <Box
+                        sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: 'rgba(255, 255, 255, 0.3)',px:1,borderRadius:2 }}
+                    >
+                        
+                            <Typography  variant="h5" sx={{ textAlign: 'center', color:'#303633'  }}>
+                                Gorgeous Nature Lover
+                            </Typography>
+                            <Typography  variant="h2" sx={{ textAlign: 'center', color:'#303633' }}>
+                                Nothing can beat the Peacefulness
+                            </Typography>
+                           
+                       
+                    </Box>
+                </Box>
+
             </Box>
 
         </>
     )
 }
+
+export default Page

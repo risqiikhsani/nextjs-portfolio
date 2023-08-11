@@ -18,6 +18,7 @@ import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
 import { Container } from '@mui/material';
 import { app_name } from '@/constants/names';
+import { useAppSelector } from '@/redux/hooks';
 
 
 
@@ -35,6 +36,7 @@ const drawerWidth = 240;
 
 export default function NavbarMUI(props: Props) {
   const { window, children } = props;
+  const background = useAppSelector((state) => state.theme.background)
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [openDrawer, setOpenDrawer] = React.useState(false)
 
@@ -68,8 +70,10 @@ export default function NavbarMUI(props: Props) {
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
+
+
   return (
-    <Box sx={{ display: 'flex', bgcolor:'antiquewhite' }}>
+    <Box sx={{ display: 'flex',minHeight:'100vh', background:background, }}>
       <CssBaseline />
       <AppBar component="nav" sx={{backgroundColor:'transparent',boxShadow:'none'}}>
         <Toolbar>
@@ -82,7 +86,7 @@ export default function NavbarMUI(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <Button component={NextLinkComposed} to="/" sx={{ color: 'white', display: { xs: 'none', sm: 'block' } }}>
+          <Button component={NextLinkComposed} to="/" sx={{ color: 'white', display: { xs: 'none', sm: 'block',textTransform:'none' } }}>
             <Typography variant="h5">
               {app_name}
             </Typography>
@@ -90,8 +94,10 @@ export default function NavbarMUI(props: Props) {
           <Box sx={{ flexGrow: 1, }} />
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {HeaderUrl.map((item) => (
-              <Button component={NextLinkComposed} to={item.url} key={item.name} sx={{ color: '#fff' }}>
+              <Button component={NextLinkComposed} to={item.url} key={item.name} sx={{ color: 'white',borderRadius:'20px',textTransform:'none' }}>
+                <Typography variant="h6">
                 {item.name}
+                </Typography>
               </Button>
             ))}
           </Box>
@@ -117,7 +123,7 @@ export default function NavbarMUI(props: Props) {
           {leftDrawer}
         </Drawer>
       </Box>
-          <Box sx={{minHeight:'100vh'}}>
+          <Box component="main" sx={{width:'100%'}}>
           <Toolbar />
           {children}
           </Box>

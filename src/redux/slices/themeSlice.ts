@@ -1,9 +1,9 @@
 import { createSlice,PayloadAction } from '@reduxjs/toolkit'
 
 export interface ThemeState {
-  darkTheme: Boolean;
-  fontTheme: String | null;
-  background: String;
+  darkTheme?: boolean;
+  fontTheme?: string | null;
+  background?: string;
 }
 
 const initialState: ThemeState = {
@@ -17,14 +17,10 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    setDarkTheme: (state, action:PayloadAction<ThemeState>) => {
+    setTheme: (state, action:PayloadAction<ThemeState>) => {
         state.darkTheme = action.payload.darkTheme
-    },
-    setFontTheme: (state, action:PayloadAction<ThemeState>) => {
         state.fontTheme = action.payload.fontTheme
-    },
-    setBackground: (state, action:PayloadAction<ThemeState>) => {
-      state.background = action.payload.background
+        state.background = action.payload.background
     },
     resetTheme : (state) => {
       state.darkTheme = false
@@ -35,6 +31,6 @@ export const themeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setDarkTheme,setFontTheme,setBackground,resetTheme  } = themeSlice.actions
+export const { setTheme,resetTheme  } = themeSlice.actions
 
 export default themeSlice.reducer

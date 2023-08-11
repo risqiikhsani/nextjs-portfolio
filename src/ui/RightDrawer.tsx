@@ -1,12 +1,78 @@
+"use client"
+
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { setTheme } from "@/redux/slices/themeSlice";
 import { Stack } from "@mui/material";
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import FormGroup from '@mui/material/FormGroup';
+import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch, { SwitchProps } from '@mui/material/Switch';
-import Typography from '@mui/material/Typography';
+import FormGroup from '@mui/material/FormGroup';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Switch from '@mui/material/Switch';
+import { styled } from '@mui/material/styles';
+import * as React from 'react';
+
+const backgroundTheme = [
+    {
+        value: 'linear-gradient(to left, #74ebd5, #acb6e5)',
+        name: 'Default Light',
+    },
+    {
+        value: 'linear-gradient(to left, #0f2027, #203a43, #2c5364)',
+        name: 'Default Dark',
+    },
+    {
+        value: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
+        name: 'Wedding Day',
+    },
+    {
+        value: 'linear-gradient(to right, #fc5c7d, #6a82fb)',
+        name: 'Sublime Light',
+    },
+    {
+        value: 'linear-gradient(to left, #00b09b, #96c93d)',
+        name: 'Ohhappiness',
+    },
+    {
+        value: 'linear-gradient(to left, #cac531, #f3f9a7)',
+        name: 'Sulphur',
+    },
+    {
+        value: 'linear-gradient(to left, #800080, #ffc0cb)',
+        name: 'Pink Flavour',
+    },
+    {
+        value: 'linear-gradient(to left, #00f260, #0575e6)',
+        name: 'Rainbow Blue',
+    },
+    {
+        value: 'linear-gradient(to left, #667db6, #0082c8, #0082c8, #667db6)',
+        name: 'Hydrogen',
+    },
+]
 
 export default function RightDrawer() {
+    const darkTheme = useAppSelector((state) => state.theme.darkTheme)
+    const background = useAppSelector((state) => state.theme.background)
+    const dispatch = useAppDispatch()
+
+
+    const [bt, setBt] = React.useState(background);
+
+    const handleChange = (event: SelectChangeEvent) => {
+        const value = event.target.value as string;
+
+        // Find the selected theme object based on the value
+        const selectedTheme = backgroundTheme.find((theme) => theme.value === value);
+
+        if (selectedTheme) {
+            setBt(selectedTheme.value); // Set the name of the selected theme
+            dispatch(setTheme({ background: selectedTheme.value })); // Update background in the state
+        }
+    };
+
+
     return (
         <>
             <Stack
@@ -17,9 +83,27 @@ export default function RightDrawer() {
             >
                 <FormGroup>
                     <FormControlLabel
-                        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+                        control={<MaterialUISwitch sx={{ m: 1 }} checked={darkTheme} onChange={() => dispatch(setTheme({ darkTheme: !darkTheme }))} />}
                         label="theme"
                     />
+                </FormGroup>
+                <FormGroup>
+                    <FormControl fullWidth>
+                        <InputLabel id="backgroundSelector">Background</InputLabel>
+                        <Select
+                            labelId="backgroundSelector"
+                            id="demo-simple-select"
+                            value={bt}
+                            label="Background"
+                            onChange={handleChange}
+                        >
+                            {backgroundTheme.map((a, index) => (
+                                <MenuItem key={index} value={a.value}>
+                                    {a.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </FormGroup>
             </Stack>
         </>

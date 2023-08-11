@@ -21,7 +21,7 @@ export const ProjectUrl:Project[] = [
   {
     name: "Calcstar",
     imageUrl: "projects/calculator.jpg",
-    url: "/",
+    url: "https://risqi2.github.io/pwa-project/",
     text: "Basic calculator app handcrafted with the beauty of react",
   },
 ];
