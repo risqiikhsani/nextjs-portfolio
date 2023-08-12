@@ -18,10 +18,6 @@ export default function Email(){
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    my: '20px',
-                    border:'5px solid cyan',
-                    p:'20px',
-                    borderRadius:'30px',
                 }}
             >
                 <Typography variant="h6">

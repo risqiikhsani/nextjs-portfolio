@@ -6,6 +6,7 @@ import "highlight.js/styles/github-dark.css"
 import CarouselMessages from "./_page/carousel-messages";
 import { textColorBackground } from "@/styles/Styles";
 import { NextLinkComposed } from "@/components/buttons/Link";
+import Prose from "@/components/mdx/Prose";
 
 
 // this 2 needs client component
@@ -43,9 +44,9 @@ const Page = async() => {
                         </Typography>
 
                         <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <div className='prose prose-slate max-w-none'>
-                                <Home />
-                            </div>
+                            <Prose>
+                            <Home />
+                            </Prose>
                         </Box>
 
 
@@ -90,9 +91,9 @@ const Page = async() => {
                 <Container maxWidth='md' sx={{ my: '30px' }}>
 
                     <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
-                        <div className='container py-4 prose'>
-                            <Home />
-                        </div>
+                        <Prose>
+                        <Home />
+                        </Prose>
                     </Box>
 
 
@@ -166,8 +167,8 @@ const Page = async() => {
                 <Box sx={{ position: 'relative' }}>
                     <Image
                         src="/coding2.jpg"
-                        width={1500}
-                        height={998}
+                        width={1920}
+                        height={1080}
                         style={{width:'100%'}}
                         alt="desk"
                         // priority={true}

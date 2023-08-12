@@ -1,4 +1,6 @@
 
+import BorderedPaper from "@/components/cards/bordered-paper";
+import Prose from "@/components/mdx/Prose";
 import { getAllPostsMeta, getPostBySlug } from "@/lib/mdx/mdx"
 import { notFound } from 'next/navigation'
 
@@ -33,8 +35,12 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
 
   return (
-      
-    <article className="prose prose-slate max-w-none">{content}</article>
+    <BorderedPaper>
+      <Prose>
+      {content}
+      </Prose>
+    </BorderedPaper>
+    
     
   )
 }

@@ -7,7 +7,7 @@ interface Props{
 export default function Layout(props:Props){
     return(
         <>
-        <Container maxWidth="md" sx={{bgcolor:'white',p:'30px',borderRadius:'10px'}}>
+        <Container maxWidth="md" >
         {props.children}
         </Container>
         </>

@@ -5,6 +5,7 @@ import { textColorBackground } from "@/styles/Styles";
 import { Divider, Typography } from "@mui/material";
 import CarouselPictures from "./_page/carousel-pictures";
 import AboutContent from "@/contents/mdx/about/AboutContent.mdx";
+import Prose from "@/components/mdx/Prose";
 
 
 const Page = async () => {
@@ -91,9 +92,11 @@ const Page = async () => {
 
       <BorderedPaper >
           
-        <article className="prose prose-slate max-w-none">
-          <AboutContent/>
-        </article>
+        <Prose>
+        <AboutContent/>
+        </Prose>
+
+        
 
       </BorderedPaper>
 

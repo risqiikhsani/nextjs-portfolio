@@ -1,7 +1,7 @@
 "use client"
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setTheme } from "@/redux/slices/themeSlice";
+import { setBackground, setDarkTheme } from "@/redux/slices/themeSlice";
 import { Stack } from "@mui/material";
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -55,6 +55,7 @@ const backgroundTheme = [
 export default function RightDrawer() {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme)
     const background = useAppSelector((state) => state.theme.background)
+    const fontTheme = useAppSelector((state) => state.theme.fontTheme)
     const dispatch = useAppDispatch()
 
 
@@ -68,13 +69,16 @@ export default function RightDrawer() {
 
         if (selectedTheme) {
             setBt(selectedTheme.value); // Set the name of the selected theme
-            dispatch(setTheme({ background: selectedTheme.value })); // Update background in the state
+            dispatch(setBackground(selectedTheme.value))
         }
     };
 
 
     return (
         <>
+        {console.log(darkTheme)}
+        {console.log(background)}
+        {console.log(fontTheme)}
             <Stack
                 direction="column"
                 justifyContent="center"
@@ -83,8 +87,8 @@ export default function RightDrawer() {
             >
                 <FormGroup>
                     <FormControlLabel
-                        control={<MaterialUISwitch sx={{ m: 1 }} checked={darkTheme} onChange={() => dispatch(setTheme({ darkTheme: !darkTheme }))} />}
-                        label="theme"
+                        control={<MaterialUISwitch sx={{ m: 1 }} checked={darkTheme} onChange={() => dispatch(setDarkTheme(!darkTheme))} />}
+                        label={darkTheme ? 'Dark Mode':'Light Mode'}
                     />
                 </FormGroup>
                 <FormGroup>

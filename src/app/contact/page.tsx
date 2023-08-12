@@ -4,6 +4,7 @@ import { Box, Divider, IconButton, Stack, Typography } from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Image from "next/image";
 import Email from "./_page/email";
+import BorderedPaper from "@/components/cards/bordered-paper";
 // const getData = async () => {
 //     const data = `# Hello World
 //     ## How are you guys doing ?
@@ -17,7 +18,7 @@ import Email from "./_page/email";
 //     return data
 // }
 
-const Page = async() => {
+const Page = async () => {
 
     // const data = await getData()
 
@@ -33,17 +34,20 @@ const Page = async() => {
                 justifyContent="center"
                 alignItems="center"
                 spacing={2}
-                >
+            >
 
-            
-            <Typography variant="h4" sx={{ textAlign: 'center' }}>
-                Sorry ,...  as this site is still being developed. <br />
-                For now , I can only provide you my email :
-            </Typography>
 
-            <Email/>
+                <Typography variant="h4" sx={{ textAlign: 'center' }}>
+                    Sorry ,...  as this site is still being developed. <br />
+                    For now , I can only provide you my email :
+                </Typography>
 
-            
+                <BorderedPaper>
+                <Email />
+                </BorderedPaper>
+                
+
+
                 <Image
                     src="/sorry-page.png"
                     width={500}

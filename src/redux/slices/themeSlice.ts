@@ -17,10 +17,14 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    setTheme: (state, action:PayloadAction<ThemeState>) => {
-        state.darkTheme = action.payload.darkTheme
-        state.fontTheme = action.payload.fontTheme
-        state.background = action.payload.background
+    setDarkTheme: (state, action:PayloadAction<boolean>) => {
+      state.darkTheme = action.payload
+    },
+    setBackground: (state, action:PayloadAction<string>) => {
+      state.background = action.payload
+    },
+    setFontTheme: (state, action:PayloadAction<string>) => {
+      state.fontTheme = action.payload
     },
     resetTheme : (state) => {
       state.darkTheme = false
@@ -31,6 +35,6 @@ export const themeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setTheme,resetTheme  } = themeSlice.actions
+export const { setDarkTheme,setBackground,setFontTheme,resetTheme  } = themeSlice.actions
 
 export default themeSlice.reducer
