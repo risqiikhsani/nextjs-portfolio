@@ -3,15 +3,18 @@ import { getAllPostsMeta } from '@/lib/mdx/mdx'
 import CardBase from '@/components/cards/card'
 import { Typography } from '@mui/material'
 import { Suspense } from 'react'
+import { textColorBackground } from '@/styles/Styles'
 
 const Page = async () => {
   const posts = await getAllPostsMeta()
 
   return (
     <>
-    <Typography variant="h2" sx={{textAlign:'center',color:'white'}}>
-      These are the blogs that I find it interesting !
-    </Typography>
+    
+    <Typography variant="h3" sx={{ textAlign: 'center', ...textColorBackground }}>
+    These are the blogs that I find it interesting !
+                </Typography>
+
     {posts?.map((post,index) => (
             <>
             {/* <Link

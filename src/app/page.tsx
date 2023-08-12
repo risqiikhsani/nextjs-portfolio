@@ -50,13 +50,15 @@ const Page = async() => {
                         </Box>
 
 
-
-                        <Typography variant='h5' sx={{ color: 'white', textAlign: 'left', display: { xs: 'none', xl: 'block' } }}>
+                        <BorderedPaper>
+                        <Typography variant='h5' sx={{ textAlign: 'left', display: { xs: 'none', xl: 'block' } }}>
                             Hello, my name is Risqi , my nickname is Hypernova.
                             I'm a developer who has passion about Web development, Mobile development, desktop development, devOps, Game development .
                             <br />
                             Beside tech world ,I also love to see an amazing nature views. My most favorite country is Switzerland.
                         </Typography>
+                        </BorderedPaper>
+                        
 
                         <Stack direction="row"
 
