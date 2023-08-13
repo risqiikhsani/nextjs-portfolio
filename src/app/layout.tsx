@@ -19,6 +19,28 @@ const roboto = Roboto({
 export const metadata = {
   title: "Risqi's Portfolio",
   description: "This is a portfolio website",
+  openGraph: {
+    title: 'Risqi`s Hypernova',
+    description: 'Portfolio Website',
+    type: 'website',
+    publishedTime: '2023-01-01T00:00:00.000Z',
+    authors: ['Risqi'],
+    siteName: 'Next.js',
+    images: [
+      {
+        url: 'https://nextjs.org/og.png',
+        width: 800,
+        height: 600,
+      },
+      {
+        url: 'https://nextjs.org/og-alt.png',
+        width: 1800,
+        height: 1600,
+        alt: 'My custom alt',
+      },
+    ],
+    locale: 'en_US',
+  },
 };
 
 
