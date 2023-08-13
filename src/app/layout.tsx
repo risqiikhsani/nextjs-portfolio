@@ -28,15 +28,15 @@ export const metadata = {
     type: 'website',
     publishedTime: '2023-01-01T00:00:00.000Z',
     authors: ['Risqi'],
-    siteName: 'Next.js',
+    siteName: 'Hypernovagg',
     images: [
       {
-        url: 'https://nextjs.org/og.png',
+        url: '/cutecat.png',
         width: 800,
         height: 600,
       },
       {
-        url: 'https://nextjs.org/og-alt.png',
+        url: '/cutecat.png',
         width: 1800,
         height: 1600,
         alt: 'My custom alt',
