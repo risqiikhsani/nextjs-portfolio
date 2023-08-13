@@ -1,5 +1,9 @@
 import { Container } from "@mui/material"
 
+export const metadata = {
+    title: "About Me",
+}
+
 interface Props{
     children: React.ReactNode
 }

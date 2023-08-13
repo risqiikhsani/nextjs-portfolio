@@ -17,7 +17,10 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Risqi's Portfolio",
+  title: {
+    template: '%s | Risqi`s Portfolio',
+    default: 'Risqi`s Portfolio', // a default is required when creating a template
+  },
   description: "This is a portfolio website",
   openGraph: {
     title: 'Risqi`s Hypernova',
