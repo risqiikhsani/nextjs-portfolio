@@ -50,8 +50,8 @@ const Page = async() => {
                         </Box>
 
 
-                        <BorderedPaper>
-                        <Typography variant='h5' sx={{ textAlign: 'left', display: { xs: 'none', xl: 'block' } }}>
+                        <BorderedPaper sx={{ textAlign: 'left', display: { xs: 'none', xl: 'block' } }}>
+                        <Typography variant='h5' >
                             Hello, my name is Risqi , my nickname is Hypernova.
                             I'm a developer who has passion about Web development, Mobile development, desktop development, devOps, Game development .
                             <br />
@@ -99,13 +99,14 @@ const Page = async() => {
                     </Box>
 
 
-
-                    <Typography variant='h5' sx={{ color: 'white', textAlign: 'left', display: { xs: 'block', xl: 'none' } }}>
+                    <BorderedPaper sx={{ textAlign: 'left', display: { xs: 'block', xl: 'none' } }}>
+                    <Typography variant='h5'>
                         Hello, my name is Risqi , my nickname is Hypernova.
                         I'm a developer who has passion about Web development, Mobile development, desktop development, devOps, Game development .
                         <br />
                         Beside tech world ,I also love to see an amazing nature views. My most favorite country is Switzerland.
                     </Typography>
+                    </BorderedPaper>
 
                     <Stack direction="row"
 
