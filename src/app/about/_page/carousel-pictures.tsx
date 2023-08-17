@@ -22,7 +22,7 @@ export default function CarouselPictures() {
                                 style={{
                                     borderRadius:'10px',
                                     width: '100%',
-                                    maxHeight: '700px',
+                                    maxHeight: '600px',
                                 }}
                                 alt={a.name}
                             />
