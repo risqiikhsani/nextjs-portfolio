@@ -15,7 +15,7 @@ import { TypeAnimation } from "react-type-animation";
 export default function Code() {
   return (
     <>
-    <Typography>
+    <Typography variant="h5" sx={{fontWeight:'bold'}}>
       <TypeAnimation
         style={{ whiteSpace: "pre-line", display: "block" }}
         sequence={[

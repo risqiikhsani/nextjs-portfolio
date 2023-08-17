@@ -6,13 +6,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import AOS from 'aos' //https://stackoverflow.com/a/42505940/12650381
 
 
 import {
     ReactNode,
     createContext,
     useContext,
+    useEffect,
     useState
 } from "react";
 
@@ -64,7 +65,9 @@ export function AppContextHandler({ children }: Props) {
         CreateOpenToastModal,
     };
 
-
+    useEffect(() => {
+        AOS.init()
+    },[])
 
 
     return (

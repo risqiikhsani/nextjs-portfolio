@@ -9,6 +9,7 @@ import {NavigationEvents} from '@/components/navigation-events'
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { AppContextHandler } from "@/context/AppContext";
+import 'aos/dist/aos.css'; //https://michalsnik.github.io/aos/
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({
