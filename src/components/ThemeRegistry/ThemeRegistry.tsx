@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import NextAppDirEmotionCacheProvider from './EmotionCache';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
@@ -10,7 +10,7 @@ export default function ThemeRegistryMaterialUI({ children }: { children: React.
   const darkTheme = useAppSelector((state) => state.theme.darkTheme)
   const dispatch = useAppDispatch()
 
-  const theme = createTheme({
+  let theme = createTheme({
     palette: {
       mode: darkTheme ? "dark" : "light",
     },
@@ -33,6 +33,8 @@ export default function ThemeRegistryMaterialUI({ children }: { children: React.
       },
     },
   });
+
+  theme = responsiveFontSizes(theme);
 
 
   return (

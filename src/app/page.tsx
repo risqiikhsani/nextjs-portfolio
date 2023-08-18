@@ -55,7 +55,7 @@ const Page = async () => {
                     >
                         <Typography
                             variant="h1"
-                            sx={{ textAlign: "center", ...textColorBackground }}
+                            sx={{ textAlign: "center", ...textColorBackground, fontStyle:'italic' }}
                         >
                             Risqi Ikhsani
                         </Typography>
@@ -207,7 +207,7 @@ const Page = async () => {
                         }}
                     >
                         <div
-                            data-aos="fade-up"
+                            data-aos="fade-left"
                             data-aos-duration="3000">
 
                             <Typography
@@ -250,7 +250,7 @@ const Page = async () => {
                         }}
                     >
                         <div
-                            data-aos="fade-up"
+                            data-aos="fade-right"
                             data-aos-duration="3000">
 
                             <Typography
